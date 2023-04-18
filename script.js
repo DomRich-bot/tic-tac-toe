@@ -24,7 +24,6 @@ const GameControl = (() => {
     [0, 4, 8],
     [2, 4, 6],
   ];
-
   return { getActivePlayer, switchPlayerTurn, winningConditions, gameOver };
 })();
 
@@ -52,7 +51,6 @@ const Board = (() => {
   function checkForTie(array) {
     return array.every((cell) => cell !== "");
   }
-
   board.addEventListener("click", function (e) {
     // Stop if game is over
     if (GameControl.gameOver) {
@@ -67,11 +65,13 @@ const Board = (() => {
       let index = parseInt(e.target.id);
       update(index, GameControl.getActivePlayer().mark);
       e.target.innerText = GameControl.getActivePlayer().mark;
+      GameControl.switchPlayerTurn();
     }
     // Check for win and display win/restart
     if (checkForWin(gameBoard)) {
       GameControl.gameOver = true;
       popup.removeAttribute("style");
+      GameControl.switchPlayerTurn();
       winMessage.innerText = `Game Over ${
         GameControl.getActivePlayer().name
       } won`;
@@ -81,8 +81,6 @@ const Board = (() => {
       popup.removeAttribute("style");
       winMessage.innerText = "It's a Tie!";
     }
-    // Switch turn after executing
-    GameControl.switchPlayerTurn();
   });
   const restart = () => {
     GameControl.gameOver = false;
@@ -98,7 +96,6 @@ const Board = (() => {
     <div class="cell" id="7"></div>
     <div class="cell" id="8"></div>`;
   };
-
   return { getGameBoard, restart };
 })();
 

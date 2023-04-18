@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "baumans";
+  src: url(fonts/webfontkit-20230418-102725/baumans-regular-webfont.woff)
+    format("woff");
+}
+
 body {
   margin: 0;
   height: 100vh;
@@ -8,6 +14,8 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  background-color: rgb(0, 0, 0);
+  color: white;
 }
 
 .modal {
@@ -31,6 +39,7 @@ body {
   align-items: center;
   gap: 70px;
   border-radius: 20px;
+  font-family: "baumans";
 }
 
 .restart {
@@ -41,14 +50,43 @@ body {
   background-color: black;
   border-radius: 10px;
   cursor: pointer;
+  font-family: "baumans";
+  box-shadow: 0px 1px 10px 0px rgb(80, 80, 80);
 }
 
-h1 {
+.restart:hover {
+  color: black;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 2px solid rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+.restart:active {
+  transform: scaleY(0.96);
+}
+
+.heading {
+  font-family: "baumans";
+  font-size: 62px;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+  letter-spacing: 7px;
+  text-decoration: underline;
+}
+
+h2 {
+  font-size: 35px;
+  letter-spacing: 3px;
+  font-family: "baumans";
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+.win-message {
   font-size: 50px;
+  color: black;
 }
 
 #container {
-  font-size: 150px;
+  font-size: 170px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -57,12 +95,14 @@ h1 {
 .cell {
   width: 220px;
   height: 220px;
-  border: 4px solid black;
+  border: 4px solid rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   align-items: center;
   margin: -3px;
   cursor: pointer;
+  font-family: "baumans";
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
 }
 
 .cell:first-child,
